@@ -4,7 +4,10 @@
 /doc
 /.fetch
 erl_crash.dump
+etog-*.tar
 *.ez
 *.beam
 /config/*.secret.exs
 .elixir_ls/
+/assets/node_modules/
+/priv/static/
