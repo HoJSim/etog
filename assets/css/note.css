@@ -4,8 +4,8 @@
   padding-bottom: 2em;
   padding-top: 1rem;
 
-  @media screen and (max-width: 767px) {
-    padding: 1rem 1rem 2rem 1rem;
+  @media screen and (max-width: 1143px) {
+    padding: 1rem 0.5rem 2rem 0.5rem;
   }
 
   &-wrapper {
