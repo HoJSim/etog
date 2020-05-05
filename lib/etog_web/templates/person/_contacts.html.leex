@@ -1,0 +1,9 @@
+<%= for contact <- @person.props["contacts"] do %>
+  <a itemprop="url" class="person__contact cs-link" href="<%= contact %>">
+    <% icon = contact_icon contact %>
+    <%= if icon do %>
+      <%= svg_image EtogWeb.Endpoint, icon, class: "person__contact-icon", focusable: false, "aria-hidden": true %>
+    <% end %>
+    <span itemprop="contactType" class="person__contact-title "><%= contact_title contact %></span>
+  </a>
+<% end %>

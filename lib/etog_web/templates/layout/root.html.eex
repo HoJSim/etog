@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="<%= Gettext.get_locale(EtogWeb.Gettext) %>">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="<%= @page_title || "Personal blog" %>">
+    <meta name="ie-polyfill-path" content="<%= Routes.static_path(@conn, "/js/polyfills.js") %>">
+    <%= csrf_meta_tag() %>
+    <title><%= @page_title || "Personal blog" %></title>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
+    <script src="<%= Routes.static_path(@conn, "/js/app.js") %>" defer="defer"></script>
+  </head>
+  <% color_scheme = Plug.Conn.get_session(@conn, "color_scheme") %>
+  <body <%= if color_scheme, do: raw("class='is-#{color_scheme}'") %>>
+    <%= @inner_content %>
+  </body>
+</html>

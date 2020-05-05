@@ -10,9 +10,10 @@ use Mix.Config
 # Configures the endpoint
 config :etog, EtogWeb.Endpoint,
   url: [host: "localhost"],
-  secret_key_base: "/MUmYOIVtp2qKwjYjFegLb44EBoEZzr5GC3Cc8vlYknPK1Qz1iQfbf0edjKPmq2Q",
+  secret_key_base: System.get_env("SECRET_KEY_BASE"),
+  live_view: [signing_salt: System.get_env("LIVE_SIGNING_SALT")],
   render_errors: [view: EtogWeb.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: Etog.PubSub, adapter: Phoenix.PubSub.PG2]
+  pubsub_server: Etog.PubSub
 
 # Configures Elixir's Logger
 config :logger, :console,

@@ -1,0 +1,18 @@
+<h4 class="cs-fn-code"><span class="cs-var-name"><%= gettext "Languages" %></span> <span class="cs-assign">=</span></h4>
+<div class="person__languages cs-fn-code_2x">
+  <% languages = languages(@person, @nodes, @edges) %>
+  <% languages_len = length(languages) - 1 %>
+  <span class="cs-bracket">[</span>
+  <%= for {{_, node, _}, idx} <- Enum.with_index(languages) do %>
+    <span itemprop="knowsLanguage" itemscope itemtype="http://schema.org/Language" class="cs-var-val">
+      <span itemprop="name">
+        <%= l @locale, node.props["title"] %>
+      </span>
+      <span>
+        <%= lang_level node %>
+        <%= if idx < languages_len, do: ", " %>
+      </span>
+    </span>
+  <% end %>
+  <span class="cs-bracket">]</span>
+</div>

@@ -1,0 +1,23 @@
+<div class="cs-line <%= if assigns[:info], do: "cs-line_info" %> <%= if assigns[:alert], do: "cs-line_alert" %>">
+  <div class="cs-line__details">
+    <div class="cs-dir"><%= assigns[:dir] || "~" %></div>
+    <div class="cs-arrow"></div>
+    <%= if assigns[:command] || assigns[:args] || assigns[:content_for_args] do %>
+      <div class="cs-command">
+        <%= if assigns[:command] do %>
+          <span class="cs-app"><%= @command %></span>
+        <% end %>
+        <%= if assigns[:args] do %>
+          <%= @args %>
+        <% else %>
+          <%= if assigns[:content_for_args], do: @content_for_args %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <%= if assigns[:yield] || assigns[:content_for_meta] do %>
+    <div class="cs-line__meta">
+      <%= assigns[:yield] || assigns[:content_for_meta] %>
+    </div>
+  <% end %>
+</div>

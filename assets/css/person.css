@@ -1,0 +1,199 @@
+.person {
+  border-top: 1px solid var(--base1);
+  display: flex;
+  margin-top: 1rem;
+
+  @media screen and (max-width: 767px) {
+    flex-direction: column;
+  }
+
+  &__profile {
+    @media screen and (min-width: 768px) {
+      padding-right: 1.5rem;
+    }
+  }
+  &__photo {
+    padding-top: 2rem;
+
+    @media screen and (max-width: 767px) {
+      padding-top: 0.75rem;
+    }
+
+    &-img {
+      height: 250px;
+      margin-top: 0.6rem;
+      width: 250px;
+
+      @media screen and (max-width: 1143px) {
+        padding-left: 1rem;
+      }
+    }
+  } 
+
+  &__contacts {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+
+    .person__contact {
+      align-items: center;
+      display: flex;
+      margin: 1rem 0;
+      padding-left: 0.5rem;
+
+      @media screen and (max-width: 767px) {
+        margin: 0.5rem 1rem;
+      }
+
+      &-icon {
+        color: black;
+        height: 1.5rem;
+        padding-right: 0.5rem;
+        width: 1.5rem;
+
+        @media (prefers-color-scheme: dark) {
+          color: var(--base1);
+        }
+        .is-dark & {
+          color: var(--base1);
+        }
+        .is-light & {
+          color: black;
+        }
+      }
+    }
+  }
+
+  &__details {
+    flex-grow: 2;
+    padding: 2rem 0;
+
+    & > div:not(.cs-line) {
+      margin-left: 2rem;
+    }
+
+    @media screen and (max-width: 767px) {
+      padding: 1rem 0;
+
+      & > div:not(.cs-line) {
+        margin-left: 1rem;
+      }
+    }
+
+    @media screen and (min-width: 768px) {
+      border-left: 1px solid var(--base1);
+    }
+
+    &_horizontal {
+      display: flex;
+      justify-content: flex-start;
+      width: 100%;
+
+      @media screen and (max-width: 767px) {
+        flex-direction: column;
+        padding: 0 0.5rem;
+        width: auto;
+      }
+
+      & > &-group:first-child {
+        padding-right: 1.5rem;
+
+        @media screen and (max-width: 767px) {
+          padding-right: 0;
+        }
+      }
+    }
+
+    &-group {
+      display: flex;
+      flex-direction: column;
+      width: 50%;
+
+      @media screen and (max-width: 767px) {
+        width: auto;
+      }
+    }
+  }
+
+  &__section {
+    @media screen and (max-width: 767px) {
+      padding: 0;
+    }
+
+    &>h2, &>h3, &>h4 {
+      margin: 0.5rem 0;
+    }
+  }
+
+  &__about {
+    @media screen and (max-width: 767px) {
+      padding: 0 1.5rem;
+    }
+
+    &>p:first-child {
+      margin-top: 0;
+    }
+    &>p:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__exp {
+    margin-top: 3rem;
+
+    @media screen and (max-width: 767px) {
+      padding: 0;
+    }
+  }
+
+  &__career {
+    & > &-track {
+      padding: 0.75rem 0; 
+
+      &:first-child {
+        padding-top: 0.25rem;
+      }
+      &:last-child {
+        padding-bottom: 0.25rem;
+      }
+    }
+  }
+  &__education {
+    &-org {
+      display: inline;
+    }
+    & > &-track {
+      padding: 0.75rem 0; 
+
+      &:first-child {
+        padding-top: 0.25rem;
+      }
+      &:last-child {
+        padding-bottom: 0.25rem;
+      }
+    }
+  }
+
+  &__skills {
+    @media screen and (max-width: 767px) {
+      padding: 0;
+    }
+
+    &-wrapper {
+      margin-top: 3rem;
+
+      @media screen and (max-width: 767px) {
+        padding: 0;
+      }
+    }
+  }
+
+  &__interests-wrapper {
+    margin-top: 3rem;
+  }
+
+  &__interests_travel {
+    margin-top: 3rem;
+  }
+}
+

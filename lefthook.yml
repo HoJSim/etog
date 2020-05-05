@@ -1,0 +1,11 @@
+pre-commit:
+  parallel: true
+  commands:
+    credo:
+      run: mix credo --strict
+    sobelow:
+      run: mix sobelow -i Config.CSP
+    dialyzer:
+      run: mix dialyzer
+    eslint:
+      run: eslint assets/js/**

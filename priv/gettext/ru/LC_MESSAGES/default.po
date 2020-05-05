@@ -1,0 +1,326 @@
+## "msgid"s in this file come from POT (.pot) files.
+##
+## Do not add, change, or remove "msgid"s manually here as
+## they're tied to the ones in the corresponding POT file
+## (with the same domain).
+##
+## Use "mix gettext.extract --merge" or "mix gettext.merge"
+## to merge POT files into PO files.
+msgid ""
+msgstr ""
+"Language: ru\n"
+"Plural-Forms: nplurals=3\n"
+
+#, elixir-format
+#: lib/etog_web/helpers/datetime.ex:38
+msgid "%{count} day"
+msgid_plural "%{count} days"
+msgstr[0] "%{count} день"
+msgstr[1] "%{count} дня"
+msgstr[2] "%{count} дней"
+
+#, elixir-format
+#: lib/etog_web/helpers/datetime.ex:37
+msgid "%{count} month"
+msgid_plural "%{count} months"
+msgstr[0] "%{count} месяц"
+msgstr[1] "%{count} месяца"
+msgstr[2] "%{count} месяцев"
+
+#, elixir-format
+#: lib/etog_web/helpers/datetime.ex:36
+msgid "%{count} year"
+msgid_plural "%{count} years"
+msgstr[0] "%{count} год"
+msgstr[1] "%{count} года"
+msgstr[2] "%{count} лет"
+
+#, elixir-format
+#: lib/etog_web/live/notes_live.ex:125
+#: lib/etog_web/templates/notes/index.html.leex:1 lib/etog_web/templates/notes/index.html.leex:12
+#: lib/etog_web/templates/shared/navigation.html.leex:14
+msgid "30 Second Notes"
+msgstr "30 секундные заметки"
+
+#, elixir-format
+#: lib/etog_web/templates/person/_trips.html.leex:2
+msgid "A Little More About My Passion For Travel"
+msgstr "Немного больше о моей страсти к путешествиям"
+
+#, elixir-format
+#: lib/etog_web/templates/person/_about.html.leex:2
+msgid "About me"
+msgstr "Обо мне"
+
+#, elixir-format
+#: lib/etog_web/templates/about/index.html.leex:1
+#: lib/etog_web/templates/about/index.html.leex:3 lib/etog_web/templates/layout/live.html.leex:19
+msgid "About project"
+msgstr "О проекте"
+
+#, elixir-format
+#: lib/etog_web/templates/person/_career.html.leex:1
+msgid "Career"
+msgstr "Карьера"
+
+#, elixir-format
+#: lib/etog_web/templates/person/_trips.html.leex:7
+msgid "Cities"
+msgstr "Города"
+
+#, elixir-format
+#: lib/etog_web/templates/person/index.html.leex:13
+msgid "Contacts"
+msgstr "Контакты"
+
+#, elixir-format
+#: lib/etog_web/templates/person/_trips.html.leex:6
+msgid "Countries"
+msgstr "Страны"
+
+#, elixir-format
+#: lib/etog_web/templates/person/_trips.html.leex:8
+msgid "Duration"
+msgstr "Продолжительность"
+
+#, elixir-format
+#: lib/etog_web/templates/person/_education.html.leex:1
+#: lib/etog_web/templates/person/resume.html.leex:49
+msgid "Education"
+msgstr "Образование"
+
+#, elixir-format
+#: lib/etog_web/templates/person/_skills.html.leex:4
+msgid "Hard skills"
+msgstr "Профессиональные навыки"
+
+#, elixir-format
+#: lib/etog_web/templates/person/index.html.leex:2
+#: lib/etog_web/templates/shared/navigation.html.leex:4
+msgid "Home"
+msgstr "Главная"
+
+#, elixir-format
+#: lib/etog_web/templates/person/_interests.html.leex:2
+#: lib/etog_web/templates/person/resume.html.leex:95
+msgid "Interests"
+msgstr "Интересы"
+
+#, elixir-format
+#: lib/etog_web/templates/person/_languages.html.leex:1
+msgid "Languages"
+msgstr "Языки"
+
+#, elixir-format
+#: lib/etog_web/templates/person/_about.html.leex:5
+msgid "My name"
+msgstr "Меня зовут"
+
+#, elixir-format
+#: lib/etog_web/templates/person/index.html.leex:18
+msgid "Profile"
+msgstr "Профиль"
+
+#, elixir-format
+#: lib/etog_web/templates/notes/_note.html.leex:12
+msgid "Read"
+msgstr "Читать"
+
+#, elixir-format
+#: lib/etog_web/templates/person/_skills.html.leex:1
+#: lib/etog_web/templates/person/resume.html.leex:87
+msgid "Skills"
+msgstr "Навыки"
+
+#, elixir-format
+#: lib/etog_web/templates/person/_skills.html.leex:7
+msgid "Soft skills"
+msgstr "Универсальные навыки"
+
+#, elixir-format
+#: lib/etog_web/templates/person/_career.html.leex:9
+msgid "current position"
+msgstr "текущая должность"
+
+#, elixir-format
+#: lib/etog_web/templates/person/_about.html.leex:6
+msgid "is"
+msgstr " "
+
+#, elixir-format
+#: lib/etog_web/helpers/datetime.ex:25 lib/etog_web/helpers/datetime.ex:29
+msgid "m"
+msgstr "м"
+
+#, elixir-format
+#: lib/etog_web/helpers/datetime.ex:25 lib/etog_web/helpers/datetime.ex:29
+msgid "y"
+msgstr "г"
+
+#, elixir-format
+#: lib/etog_web/live/notes_live.ex:49 lib/etog_web/live/person_live.ex:51
+msgid "Cannot load data from the database. Try to reload the page."
+msgstr "Не удалось загрузить данные из базы. Попробуйте перезагрузить страницу."
+
+#, elixir-format
+#: lib/etog_web/templates/person/index.html.leex:6
+msgid "Photo"
+msgstr "Фото"
+
+#, elixir-format
+#: lib/etog_web/live/person_live.ex:85
+msgid "The person wasn't found. Check thay you write the correct name."
+msgstr "Человек не найден. Проверьте, что вы указали правильное имя."
+
+#, elixir-format
+#: lib/etog_web/templates/notes/_note.html.leex:41
+msgid "Back"
+msgstr "Назад"
+
+#, elixir-format
+#: lib/etog_web/templates/layout/live.html.leex:20
+msgid "Metrics"
+msgstr "Метрики"
+
+#, elixir-format
+#: lib/etog_web/live/notes_live.ex:132
+msgid "Notes weren't found. Something went wrong."
+msgstr "Заметки не найдены. Что-то пошло не так."
+
+#, elixir-format
+#: lib/etog_web/templates/person/index.html.leex:10
+msgid "Photo of "
+msgstr "Фото"
+
+#, elixir-format
+#: lib/etog_web/templates/shared/theme.html.leex:6
+#: lib/etog_web/templates/shared/theme.html.leex:7
+msgid "Switch to %{locale} language"
+msgstr "Переключиться на %{locale} язык"
+
+#, elixir-format
+#: lib/etog_web/templates/shared/theme.html.leex:14
+#: lib/etog_web/templates/shared/theme.html.leex:15
+msgid "Switch to dark/light theme"
+msgstr "Переключиться на темную/светлую тему"
+
+#, elixir-format
+#: lib/etog_web/live/person_live.ex:82
+msgid "The person wasn't found. Something went wrong."
+msgstr "Человек не найден. Что-то пошло не так."
+
+#, elixir-format
+#: lib/etog_web/templates/notes/index.html.leex:8
+msgid "There're not notes yet!"
+msgstr "Здесь еще нет заметок!"
+
+#, elixir-format
+#: lib/etog_web/live/notes_live.ex:135
+msgid "There're not notes."
+msgstr "Нет заметок."
+
+#, elixir-format
+#: lib/etog/n4j.ex:152
+msgid "Unexepted Error"
+msgstr "Неожиданная ошибка"
+
+#, elixir-format
+#: lib/etog_web/live/about.ex:22
+msgid "about project"
+msgstr "О проекте"
+
+#, elixir-format
+#: lib/etog_web/templates/about/index.html.leex:23
+msgid "A little bit about the choice of technology:"
+msgstr "Немного о выборе технологий:"
+
+#, elixir-format
+#: lib/etog_web/templates/notes/_note.html.leex:34
+msgid "Author"
+msgstr "Автор"
+
+#, elixir-format
+#: lib/etog_web/templates/about/index.html.leex:20
+msgid "Graph database"
+msgstr "Графовая БД"
+
+#, elixir-format
+#: lib/etog_web/templates/about/index.html.leex:9
+msgid "Here I summarize some of my projects, completed courses or finished books, and try to share my experience and knowledge."
+msgstr "Здесь я подвожу итоги по некоторым своим проектам, завершенным курсам или прочитанным книгам, и стараюсь поделиться своим опытом и знаниями."
+
+#, elixir-format
+#: lib/etog_web/templates/about/index.html.leex:26
+msgid "I followed Phoenix and LiveView for over a year before trying it out. In my opinion, it’s a great product for a big range of internet projects, with a lot of things out of the box, small size of a bundle, with the ability to write a better maintainable project than a similar one using JS frameworks. However, if you need offline mode, this is not your choice."
+msgstr "За Phoenix и LiveView я следил больше года, прежде чем попробовал его в деле. На мой взгляд, это великолепный продукт для достаточно большого круга интернет-проектов, со множеством вещей из коробки, маленьким размером бандла, с возможностью написать более качественный и легко поддерживаемый проект, чем аналогичный с использованием JS фреймворков. Однако, если нужна поддержка работы оффлайн, то это не ваш выбор."
+
+#, elixir-format
+#: lib/etog_web/templates/about/index.html.leex:5
+msgid "I’m glad to see you on my personal blog"
+msgstr "Я рад видеть вас в моем личном блоге"
+
+#, elixir-format
+#: lib/etog_web/templates/about/index.html.leex:17
+msgid "The basis of the project is:"
+msgstr "Основу проекта составляют:"
+
+#, elixir-format
+#: lib/etog_web/templates/about/index.html.leex:32
+msgid "The interest to the graph databases matured long ago. I can’t say that in this project I found their advantages over any others. In reality, I think it takes much more data to test them. So there are no conclusions yet. However, I have a much better idea of what it is, how to work with it, and what limitations exist."
+msgstr "Интерес к графовым БД, также зрел давно, не могу сказать, что в этом проекте мне хоть как-то удалось нащупать их преимущества перед любыми другими. В реальности, думаю нужно гораздо больше данных, чтобы оценить их. Поэтому выводов пока не будет. Однако, для себя я значительно лучше представляю что это, как с этим работать и какие ограничения существуют."
+
+#, elixir-format
+#: lib/etog_web/templates/about/index.html.leex:14
+msgid "The source code is available on"
+msgstr "Исходный код доступен на"
+
+#, elixir-format
+#: lib/etog_web/templates/about/index.html.leex:28
+msgid "There are other disadvantages and limitations, but if you have faced with problems that your front-end project turns into something heavily maintainable in a year and the same people who created it, or a new team is calling for rewrite everything, I recommend looking in this direction.\n"
+msgstr "Существуют и другие минусы и ограничения, но если вы сталкивались с проблемами, что за год ваш frontend проект превращается во что-то тяжело поддерживаемое и те же люди, кто его создавал, или новая команда призывают взять и переписать все, то рекомендую взглянуть в эту сторону."
+
+#, elixir-format
+#: lib/etog_web/templates/about/index.html.leex:11
+msgid "This is my attempt to try new or interesting technologies on something more tangible than artificial projects."
+msgstr "Одновременно это моя попытка попробовать новые или интересные мне технологии на чем-то более осязаемом, чем абсолютно искуственные проекты."
+
+#, elixir-format
+#: lib/etog_web/templates/about/index.html.leex:7
+msgid "or short"
+msgstr "или сокращенно"
+
+#, elixir-format
+#: lib/etog_web/templates/about/index.html.leex:8
+msgid "there’s a small wordplay here, as the abbreviation is like “Resume” in Russian"
+msgstr "здесь небольшая игра слов, так как сокращение созвучно с \"Итог\""
+
+#, elixir-format
+#: lib/etog_web/live/person_live.ex:120
+msgid "Personal blog"
+msgstr "личный блог"
+
+#, elixir-format
+#: lib/etog_web/templates/person/resume.html.leex:26
+msgid "Present"
+msgstr "По наст. время"
+
+#, elixir-format
+#: lib/etog_web/live/person_live.ex:118
+#: lib/etog_web/templates/person/resume.html.leex:2 lib/etog_web/templates/shared/navigation.html.leex:9
+msgid "Resume"
+msgstr "Резюме"
+
+#, elixir-format
+#: lib/etog_web/templates/person/resume.html.leex:80
+msgid "Skills & Interests"
+msgstr "Навыки и интересы"
+
+#, elixir-format
+#: lib/etog_web/templates/person/resume.html.leex:10
+msgid "Work expirience"
+msgstr "Опыт работы"
+
+#, elixir-format
+#: lib/etog_web/templates/layout/live.html.leex:13
+msgid "Errors"
+msgstr "Ошибки"

@@ -1,0 +1,19 @@
+<nav>
+  <ul class="top-header__list">
+    <li class="top-header__list-item">
+      <%= live_redirect gettext("Home"),
+            to: Routes.live_path(@socket, EtogWeb.PersonLive),
+            class: "cs-link #{if assigns[:active_link] == :home, do: "cs-link_active"}" %> /
+    </li>
+    <li class="top-header__list-item">
+      <%= live_redirect gettext("Resume"),
+            to: Routes.person_path(@socket, :resume),
+            class: "cs-link #{if assigns[:active_link] == :resume, do: "cs-link_active"}" %> /
+    </li>
+    <li class="top-header__list-item">
+      <%= live_redirect gettext("30 Second Notes"),
+            to: Routes.live_path(@socket, EtogWeb.NotesLive),
+            class: "cs-link #{if assigns[:active_link] == :notes, do: "cs-link_active"}" %>
+    </li>
+  </ul>
+</nav>

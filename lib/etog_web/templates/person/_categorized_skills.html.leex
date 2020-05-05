@@ -1,0 +1,15 @@
+<div class="person__section">
+  <h4><span class="cs-var-name"><%= @category %></span> <span class="cs-assign">=</span></h4>
+  <div class="cs-fn-code">
+    <span class="cs-bracket">[</span>
+    <% skills = skills(@person, @nodes, @edges, @skill_type)%>
+    <% skills_len = length(skills) - 1 %>
+    <%= for {{_, node, _}, idx} <- Enum.with_index(skills) do %>
+      <span itemprop="knowsAbout" class="cs-var-val">
+        <%= l @locale, node.props["title"] %>
+        <%= if idx < skills_len, do: ", " %>
+      </span>
+    <% end %>
+    <span class="cs-bracket">]</span>
+  </div>
+</div>

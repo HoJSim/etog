@@ -19,6 +19,17 @@ config :etog, EtogWeb.Endpoint,
       "--watch-stdin",
       cd: Path.expand("../assets", __DIR__)
     ]
+  ],
+  title: "Experience to a Graph - Personal blog",
+  default_person: System.get_env("PERSON_KEY"),
+  locales: %{
+    "en" => 0,
+    "ru" => 1
+  },
+  db: [
+    url: "http://localhost:7474/db/neo4j",
+    user: "neo4j",
+    pass: "123123"
   ]
 
 # ## SSL Support

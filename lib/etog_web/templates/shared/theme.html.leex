@@ -1,0 +1,17 @@
+<%= for loc <- Map.keys(Application.get_env(:etog, EtogWeb.Endpoint)[:locales]) do %>
+  <button type="button"
+          class="cs-meta__btn"
+          phx-hook="LocaleSelector"
+          data-locale="<%= loc %>"
+          aria-label="<%= gettext("Switch to %{locale} language", locale: String.upcase(loc)) %>"
+          title="<%= gettext("Switch to %{locale} language", locale: String.upcase(loc)) %>">
+    <%= String.upcase(loc) %>
+  </button>
+<% end %>
+<button type="button"
+        class="cs-meta__btn"
+        phx-hook="ThemeSelector"
+        aria-label="<%= gettext("Switch to dark/light theme") %>"
+        title="<%= gettext("Switch to dark/light theme") %>">
+  <span class="cs-meta__btn_icon cs-meta__btn_icon-theme"></span>
+</button>

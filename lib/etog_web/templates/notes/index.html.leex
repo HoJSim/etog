@@ -1,0 +1,19 @@
+<%= render SharedView, "line.html", dir: "/#{ gettext "30 Second Notes" }" %>
+<div class="notes" itemscope itemtype="http://schema.org/Blog">
+  <%= if @selected_note do %>
+    <%= render "_note.html", socket: @socket, note: @selected_note, person: @person, locale: @locale, preview: false %>
+  <% else %>
+    <%= if Enum.empty?(@notes) do %>
+      <div class="notes-wrapper_empty">
+        <%= gettext "There're not notes yet!" %>
+      </div>
+    <% else %>
+      <div class="notes-wrapper">
+        <div itemprop="description" class="notes__description"><%= gettext "30 Second Notes" %></div>
+        <%= for {_, note, _} <- @notes do %>
+          <%= render "_note.html", socket: @socket, note: note, person: @person, locale: @locale, preview: true %>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
+</div>

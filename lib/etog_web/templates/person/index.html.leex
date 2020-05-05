@@ -1,0 +1,37 @@
+<%= if @person do %>
+  <%= render SharedView, "line.html", dir: "/#{gettext "Home"}" %>
+  <div class="person" itemscope itemtype="https://schema.org/Person">
+    <div class="person__profile">
+      <div class="person__photo">
+        <%= render SharedView, "line.html", dir: "/#{gettext("Photo")}" %>
+        <img class="person__photo-img"
+             itemprop="image"
+             src="<%= Routes.static_path(@socket, @person.props["img"]) %>"
+             alt="<%= gettext "Photo of " %><%= l @locale, @person.props["name"] %>"/>
+      </div>
+      <div class="person__contacts" itemprop="contactPoint" itemscope itemtype="https://schema.org/ContactPoint">
+        <%= render SharedView, "line.html", dir: "/#{ gettext "Contacts" }" %>
+        <%= render "_contacts.html", assigns %>
+      </div>
+    </div>
+    <div class="person__details">
+      <%= render SharedView, "line.html", dir: "/#{ gettext "Profile" }" %>
+      <%= render "_about.html", assigns %>
+      <div class="person__details_horizontal person__exp">
+        <div class="person__details-group person__section">
+          <%= render "_career.html", assigns %>
+        </div>
+        <div class="person__details-group person__section">
+          <%= render "_education.html", assigns %>
+        </div>
+      </div>
+      <div class="person__skills-wrapper person__section">
+        <%= render "_skills.html", assigns %>
+        <div class="person__section">
+          <%= render "_languages.html", assigns %>
+        </div>
+      </div>
+      <%= render "_interests.html", assigns %>
+    </div>
+  </div>
+<% end %>

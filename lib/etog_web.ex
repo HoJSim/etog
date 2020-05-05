@@ -23,6 +23,7 @@ defmodule EtogWeb do
 
       import Plug.Conn
       import EtogWeb.Gettext
+      import Phoenix.LiveView.Controller
       alias EtogWeb.Router.Helpers, as: Routes
     end
   end
@@ -39,8 +40,12 @@ defmodule EtogWeb do
       # Use all HTML functionality (forms, tags, etc)
       use Phoenix.HTML
 
+      # use PhoenixInlineSvg.Helpers, otp_app: :etog
+
+      import PhoenixInlineSvg.Helpers
       import EtogWeb.ErrorHelpers
       import EtogWeb.Gettext
+      import Phoenix.LiveView.Helpers
       alias EtogWeb.Router.Helpers, as: Routes
     end
   end
@@ -50,6 +55,7 @@ defmodule EtogWeb do
       use Phoenix.Router
       import Plug.Conn
       import Phoenix.Controller
+      import Phoenix.LiveView.Router
     end
   end
 

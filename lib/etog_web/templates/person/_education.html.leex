@@ -1,0 +1,13 @@
+<h3><span class="cs-var-name"><%= gettext "Education" %></span> <span class="cs-assign">=</span> <span class="cs-bracket">[</span></h3>
+<div class="person__education cs-fn-code">
+  <%= for {_, f_node, [{_, u_node, _}]} <- degrees(@person, @nodes, @edges) do %>
+    <div class="cs-var-val person__education-track">
+      <span><%= l @locale, f_node.props["degree"] %>,</span>
+      <div itemprop="alumniOf" itemscope itemtype="http://schema.org/EducationalOrganization" class="person__education-org">
+        <span itemprop="department"><%= l @locale, f_node.props["title"] %>,</span>
+        <span itemprop="name"><%= l @locale, u_node.props["title"] %></span>
+      </div>
+    </div>
+  <% end %>
+</div>
+<div class="cs-bracket cs-close-bracket_h3">]</div>

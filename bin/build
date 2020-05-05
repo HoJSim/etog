@@ -1,0 +1,59 @@
+#!/usr/bin/env bash
+
+set -e
+
+APP_PATH=/opt/app
+BUILD_PATH=/opt/build
+cd $BUILD_PATH
+
+ln -s $APP_PATH/_build $BUILD_PATH/_build
+ln -s $APP_PATH/config $BUILD_PATH/config
+ln -s $APP_PATH/lib $BUILD_PATH/lib
+ln -s $APP_PATH/rel $BUILD_PATH/rel
+cp -r $APP_PATH/priv $BUILD_PATH/priv
+
+mkdir assets
+ln -s $APP_PATH/assets/css $BUILD_PATH/assets/css
+ln -s $APP_PATH/assets/js $BUILD_PATH/assets/js
+ln -s $APP_PATH/assets/static $BUILD_PATH/assets/static
+ln -s $APP_PATH/assets/vendor $BUILD_PATH/assets/vendor
+cp /opt/app/assets/*.* /opt/build/assets/
+
+cp $APP_PATH/mix.exs $BUILD_PATH/mix.exs
+cp $APP_PATH/mix.lock $BUILD_PATH/mix.lock
+
+APP_NAME="$(grep 'app:' mix.exs | sed -e 's/\[//g' -e 's/ //g' -e 's/app://' -e 's/[:,]//g')"
+APP_VSN="$(grep 'version:' mix.exs | cut -d '"' -f2)"
+ART_PATH=$APP_PATH/rel/artifacts/"$APP_NAME-$APP_VSN.tar.gz"
+
+[ -d $ART_PATH ] && { echo "Release already exists"; rm -r *; exit 0; }
+
+# Install updated versions of hex/rebar
+mix local.rebar --force
+mix local.hex --if-missing --force
+
+export MIX_ENV=prod
+
+# Fetch deps and compile
+mix deps.get --only prod
+# Build assets
+npm ci --prefix assets
+npm run deploy --prefix assets
+# Compile
+mix compile
+# Generate digest
+mix phx.digest
+# Move digested static to _build
+rm -rf _build/prod/lib/etog/priv
+cp -r priv _build/prod/lib/etog/priv
+# Build the release
+if [[ "$RELEASE_TYPE" == "upgrade" ]]; then
+	mix distillery.release --env=prod --upgrade
+else
+	mix distillery.release --env=prod
+fi
+# Copy tarball to output
+cp "_build/prod/rel/$APP_NAME/releases/$APP_VSN/$APP_NAME.tar.gz" $ART_PATH
+# Clean
+rm -r *
+exit 0

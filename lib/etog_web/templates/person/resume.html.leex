@@ -1,0 +1,102 @@
+<%= if @person do %>
+  <%= render SharedView, "line.html", dir: "/#{gettext "Resume"}" %>
+  <div class="cv">
+    <h3 class="cv__person"><%= l @locale, @person.props["name"] %></h3>
+    <p>
+      <% {_, city, [{_, country, _}]} = List.first(location(@person, @nodes, @edges)) %>
+      <%= l @locale, city.props["title"] %>,
+      <%= l @locale, country.props["title"] %>
+    </p>
+    <h4 class="cv__header"><%= gettext "Work expirience" %></h4>
+    <hr class="cv__space">
+    <%= for {j_edge, j_node, [{_, city, [{_, country, _}]}]} <- jobs(@person, @nodes, @edges) do %>
+      <div class="cv__section">
+	<div class="cv__section-header">
+	  <div class="cv__company">
+	    <%= l @locale, j_node.props["title"] %>
+	  </div>
+	  <div class="cv__dates">
+	    <% worked_from = Date.from_iso8601!(j_edge.props["from"]) %>
+	    <%= month_abbr(worked_from, @locale) %> <%= worked_from.year %>
+	    -
+	    <%= if j_edge.props["to"] do %>
+	      <% worked_to = Date.from_iso8601!(j_edge.props["to"]) %>
+	      <%= month_abbr(worked_to, @locale) %> <%= worked_to.year %>
+	    <% else %>
+	      <%= gettext("Present") %>
+	    <% end %>
+	  </div>
+	</div>
+	<div class="cv__section-subheader">
+	  <div class="cv__job-role">
+	    <%= l @locale, j_edge.props["position"] %>
+	  </div>
+	  <div class="cv__job-location">
+	    <%= l @locale, city.props["title"] %>,
+	    <%= l @locale, country.props["title"] %>
+	  </div>
+	</div>
+	<div class="cv__section-body">
+	  <ul class="cv__responsibilities">
+	    <%= for resp <- responsibilities(j_edge.props, @locale) do %>
+	      <li><%= resp %></li>
+	    <% end %>
+	  </ul>
+	</div>
+      </div>
+    <% end %>
+
+    <h4 class="cv__header"><%= gettext "Education" %></h4>
+    <hr class="cv__space">
+    <%= for {study_edge, f_node, [{_, u_node, _}]} <- degrees(@person, @nodes, @edges) do %>
+      <div class="cv__section">
+	<div class="cv__section-header">
+	  <div>
+	    <%= l @locale, u_node.props["title"] %>
+	  </div>
+	  <div>
+	    <%= Enum.join(study_edge.props["range"], " - ") %>
+	  </div>
+	</div>
+	<div class="cv__section-subheader">
+	  <div>
+	    <%= l @locale, f_node.props["degree"] %>,
+	    <%= l @locale, f_node.props["title"] %>
+	  </div>
+	</div>
+	<div class="cv__section-body">
+	  <% activities = university_activities(@person, @nodes, @edges, f_node.id) %>
+	  <%= unless Enum.empty?(activities) do %>
+	    <ul class="cv__activities">
+	      <%= for {_, activity, _} <- activities do %>
+		<li><%= l @locale, activity.props["title"] %></li>
+	      <% end %>
+	    </ul>
+	  <% end %>
+	</div>
+      </div>
+    <% end %>
+
+    <h4 class="cv__header"><%= gettext "Skills & Interests" %></h4>
+    <hr class="cv__space">
+    <div class="cv__section">
+      <ul class="cv__activities">
+	<% skills = list_of_skills(@person, @nodes, @edges, @locale) %>
+	<%= unless Enum.empty?(skills) do %>
+	  <li>
+	    <strong><%= gettext "Skills" %>:</strong>
+	    <%= Enum.join(skills, "; ") %>
+	  </li>
+	<% end %>
+
+	<% interests = list_of_interests(@person, @nodes, @edges, @locale) %>
+	<%= unless Enum.empty?(interests) do %>
+	  <li>
+	    <strong><%= gettext "Interests" %>:</strong>
+	    <%= Enum.join(interests, "; ") %>
+	  </li>
+	<% end %>
+      </ul>
+    </div>
+  </div>
+<% end %>

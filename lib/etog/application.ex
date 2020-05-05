@@ -8,6 +8,8 @@ defmodule Etog.Application do
   def start(_type, _args) do
     # List all child processes to be supervised
     children = [
+      # Start the PubSub system
+      {Phoenix.PubSub, name: Etog.PubSub},
       # Start the endpoint when the application starts
       EtogWeb.Endpoint
       # Starts a worker by calling: Etog.Worker.start_link(arg)

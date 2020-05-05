@@ -1,0 +1,224 @@
+.cs-link {
+  color: var(--blue);
+
+  &:visited {
+    color: var(--magenta);
+
+    @media (prefers-color-scheme: dark) {
+      color: var(--magenta);
+    }
+    .is-dark & {
+      color: var(--magenta);
+    }
+    .is-light & {
+      color: var(--magenta);
+    }
+  }
+
+  &_active, &_active:visited {
+    color: black;
+    text-decoration: none;
+
+    @media (prefers-color-scheme: dark) {
+      color: var(--base2);
+    }
+    .is-dark & {
+      color: var(--base2);
+    }
+    .is-light & {
+      color: black;
+    }
+  }
+}
+.cs-line {
+  align-items: center;
+  display: flex;
+  height: 2rem;
+  justify-content: space-between;
+  margin: 0.25rem 0;
+
+  @media screen and (max-width: 767px) {
+    align-items: flex-start;
+    flex-direction: column-reverse;
+    height: auto;
+  }
+
+  &_info {
+    color: var(--cyan);
+  }
+  &_alert {
+    color: var(--red);
+  }
+  &__details, &__meta {
+    align-items: center;
+    display: flex;
+
+    @media screen and (max-width: 767px) {
+      align-items: flex-start;
+    }
+  }
+  &__meta {
+    @media screen and (max-width: 767px) {
+      justify-content: flex-end;
+      padding: 1rem 0;
+      width: 100%;
+    }
+  }
+}
+.cs-dir {
+  align-items: center;
+  background: var(--blue);
+  color: var(--base2);
+  display: flex;
+  height: 2rem;
+  padding: 0 0.5rem;
+}
+.cs-arrow {
+  border-bottom: 1rem solid transparent;
+  border-left: 1rem solid var(--blue); 
+  border-top: 1rem solid transparent; 
+  height: 0;
+  width: 0;
+}
+.cs-command {
+  align-items: center;
+  display: flex;
+  height: 2rem;
+  padding-bottom: 0.25rem;
+  padding-left: 0.5rem;
+
+  @media screen and (max-width: 767px) {
+    align-items: flex-start;
+    height: auto;
+  }
+}
+.cs-app {
+  color: var(--green);
+  padding-right: 0.5rem;
+}
+.cs-def {
+  color: var(--base01);
+  padding-right: 0.5rem; 
+
+  @media (prefers-color-scheme: dark) {
+    color: var(--base2);
+  }
+  .is-dark & {
+    color: var(--base2);
+  }
+  .is-light & {
+    color: var(--base01);
+  }
+}
+.cs-fn-name {
+  color: var(--base01);
+
+  @media (prefers-color-scheme: dark) {
+    color: var(--green);
+  }
+  .is-dark & {
+    color: var(--green);
+  }
+  .is-light & {
+    color: var(--base01);
+  }
+}
+.cs-fn-code {
+  padding-left: 1.5rem;
+
+  &_2x {
+    padding-left: 3rem;
+  }
+}
+.cs-var-name {
+  color: var(--base01);
+
+  @media (prefers-color-scheme: dark) {
+    color: var(--green);
+  }
+  .is-dark & {
+    color: var(--green);
+  }
+  .is-light & {
+    color: var(--base01);
+  }
+}
+.cs-var-val {
+  color: var(--cyan);
+}
+.cs-assign, .cs-bracket {
+  color: var(--base00);
+
+  @media (prefers-color-scheme: dark) {
+    color: var(--base1);
+  }
+  .is-dark & {
+    color: var(--base1);
+  }
+  .is-light & {
+    color: var(--base00);
+  }
+}
+.cs-quote {
+  color: var(--orange);
+}
+.cs-close-bracket_h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.cs-meta {
+  &__btn {
+    background-color: var(--base3);
+    border: none;
+    cursor: pointer;
+    margin: 0 0.5rem;
+
+    &:focus {
+      border: 1px dotted black;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      background-color: var(--base02);
+      color: var(--base2);
+
+      &:focus {
+        border: 1px dotted var(--base2);
+      }
+    }
+    .is-dark & {
+      background-color: var(--base02);
+      color: var(--base2);
+
+      &:focus {
+        border: 1px dotted var(--base2);
+      }
+    }
+    .is-light & {
+      background-color: var(--base3);
+      color: black;
+
+      &:focus {
+        border: 1px dotted black;
+      }
+    }
+
+    &_icon {
+      height: 1.5rem;
+      width: 1.5rem;
+    }
+    &_icon-theme {
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>');
+      display: block;
+
+      @media (prefers-color-scheme: dark) {
+        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgb(253, 246, 227)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>');
+      }
+      .is-dark & {
+        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgb(253, 246, 227)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>');
+      }
+      .is-light & {
+        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>');
+      }
+    }
+  }
+}

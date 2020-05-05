@@ -7,7 +7,10 @@ erl_crash.dump
 etog-*.tar
 *.ez
 *.beam
+/config/.env
 /config/*.secret.exs
 .elixir_ls/
 /assets/node_modules/
 /priv/static/
+/rel/artifacts/*.gz
+.env

@@ -1,9 +1,17 @@
 defmodule EtogWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :etog
 
+  @session_options [
+    store: :cookie,
+    key: "_etog_key",
+    signing_salt: "49Fj2AdqdNktNhd3DeFiGohzwH0UblTe"
+  ]
+
   socket "/socket", EtogWeb.UserSocket,
     websocket: true,
     longpoll: false
+
+  socket "/live", Phoenix.LiveView.Socket, websocket: [connect_info: [session: @session_options]]
 
   # Serve at "/" the static files from "priv/static" directory.
   #
@@ -12,7 +20,8 @@ defmodule EtogWeb.Endpoint do
   plug Plug.Static,
     at: "/",
     from: :etog,
-    gzip: false,
+    gzip: true,
+    brotli: true,
     only: ~w(css fonts images js favicon.ico robots.txt)
 
   # Code reloading can be explicitly enabled under the
@@ -37,10 +46,7 @@ defmodule EtogWeb.Endpoint do
   # The session will be stored in the cookie and signed,
   # this means its contents can be read but not tampered with.
   # Set :encryption_salt if you would also like to encrypt it.
-  plug Plug.Session,
-    store: :cookie,
-    key: "_etog_key",
-    signing_salt: "y/jwsp/l"
+  plug Plug.Session, @session_options
 
   plug EtogWeb.Router
 end

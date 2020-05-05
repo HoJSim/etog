@@ -1,0 +1,15 @@
+<div class="person__interests-wrapper person__section">
+  <h3><span class="cs-fn-name"><%= gettext "Interests" %></span></h3>
+  <div class="person__interests cs-fn-code">
+    <% interests = interests(@person, @nodes, @edges) %>
+    <% interests_len = length(interests) - 1 %>
+    <span class="cs-bracket">[</span>
+    <%= for {{_, node, _}, idx} <- Enum.with_index(interests) do %>
+      <span class="cs-var-val">
+        <%= l @locale, node.props["title"] %>
+        <%= if idx < interests_len, do: ", " %>
+      </span>
+    <% end %>
+    <span class="cs-bracket">]</span>
+  </div>
+</div>

@@ -1,0 +1,74 @@
+.cv {
+  border: double var(--base1);
+  margin: 2rem 0;
+  padding: 1rem;
+
+  @media (prefers-color-scheme: dark) {
+    border: double var(--base01);
+  }
+  .is-dark & {
+    border: double var(--base01);
+  }
+  .is-light & {
+    border: double var(--base1);
+  }
+
+  &__person {
+    @media (prefers-color-scheme: dark) {
+      color: var(--base2);
+    }
+    .is-dark & {
+      color: var(--base2);
+    }
+    .is-light & {
+      color: black;
+    }
+  }
+
+  &__header {
+    padding-top: 1rem;
+    text-transform: uppercase;
+
+    @media (prefers-color-scheme: dark) {
+      color: var(--base2);
+    }
+    .is-dark & {
+      color: var(--base2);
+    }
+    .is-light & {
+      color: black;
+    }
+  }
+  &__section {
+    margin-top: 2.5rem;
+
+    &-header {
+      display: flex;
+      font-weight: 700;
+      justify-content: space-between;
+
+      @media (prefers-color-scheme: dark) {
+        color: var(--base2);
+      }
+      .is-dark & {
+        color: var(--base2);
+      }
+      .is-light & {
+        color: black;
+      }
+    }
+
+    &-subheader {
+      display: flex;
+      font-style: italic;
+      justify-content: space-between;
+      padding-top: 0.5rem;
+    }
+  }
+
+  &__responsibilities, &__activities {
+    li {
+      margin: 0.45rem 0;
+    }
+  }
+}

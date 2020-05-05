@@ -1,0 +1,9 @@
+<h3><span class="cs-fn-name"><%= gettext "Skills" %></span></h3>
+<div class="person__skills person__details_horizontal">
+  <div class="person__details-group cs-fn-code">
+    <%= render "_categorized_skills.html", Map.merge(assigns, %{category: gettext("Hard skills"), skill_type: "hard skills"}) %>
+  </div>
+  <div class="person__details-group cs-fn-code">
+    <%= render "_categorized_skills.html", Map.merge(assigns, %{category: gettext("Soft skills"), skill_type: "soft skills"}) %>
+  </div>
+</div>

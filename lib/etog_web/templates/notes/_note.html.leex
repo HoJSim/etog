@@ -1,0 +1,45 @@
+<article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting" class="note <%= if @note.props["pinned"], do: "note_pinned" %>">
+  <header class="note__header">
+    <h4 itemprop="headline"><%= l @locale, @note.props["title"] %></h4>
+  </header>
+  <div class="note__content" itemprop="articleBody">
+    <% text = l(@locale, @note.props["text"]) %>
+    <% text = if @preview, do: String.slice(text, 0, 500), else: text %>
+    <%= text |> as_html! |> raw %>
+  </div>
+  <footer class="note__footer <%= unless @preview, do: "note__footer_full" %>">
+    <%= if @preview do %>
+      <%= live_patch gettext("Read"),
+            to: Routes.notes_path(
+              @socket,
+              :show,
+              @person.props["key"],
+              note_url_title(@note.id, l(@locale, @note.props["title"]))
+            ),
+            class: "cs-link" %>
+    <% else %>
+      <div class="note__sources">
+        <%= unless Enum.empty?(@note.props["sources"] || []) do %>
+          <%= for source <- @note.props["sources"] do %>
+            <% [title, url] = split_source(source) %>
+            <a class="cs-link" href="<%= url %>"><%= title %></a>
+            <br>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+    <div class="note__timestamp">
+      <span itemprop="datePublished"><%= noted_at @note %></span>
+      <div class="note__author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <%= gettext "Author" %>: <span itemprop="name"><%= l @locale, @person.props["name"] %></span>
+      </div>
+    </div>
+  </footer>
+</article>
+<%= unless @preview do %>
+  <div class="note__controls">
+    <%= live_patch gettext("Back"),
+          to: Routes.live_path(@socket, EtogWeb.NotesLive),
+          class: "cs-link" %>
+  </div>
+<% end %>

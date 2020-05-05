@@ -1,0 +1,26 @@
+<header class="top-header">
+  <%= EtogWeb.ExtendedRenderEngine.render_block EtogWeb.SharedView, "line.html", %{named_blocks: {:content_for_args, :content_for_meta}} do %>
+    <%= for {tmpl, args} <- [{"navigation.html", [socket: @socket, active_link: assigns[:active_link] || :home]}, {"theme.html", []}] do %>
+      <%= render EtogWeb.SharedView, tmpl, args %>
+    <% end %>
+  <% end %>
+</header>
+<main class="container">
+  <%= if (@flash || %{})["notice"] do %>
+    <%= render EtogWeb.SharedView, "line.html", info: true, args: live_flash(@flash, :notice) %>
+  <% end %>
+  <%= if (@flash || %{})["error"] do %>
+    <%= render EtogWeb.SharedView, "line.html", alert: true, dir: "/#{gettext "Errors"}", args: live_flash(@flash, :error) %>
+  <% end %>
+  <%= @inner_content %>
+</main>
+<footer class="footer">
+  <nav class="footer__nav">
+    <%= live_redirect gettext("About project"), to: Routes.live_path(@socket, EtogWeb.AboutLive), class: "cs-link footer__link" %>
+    <a href="/dashboard/nonode@nohost" class="cs-link footer__link"><%= gettext "Metrics" %></a>
+  </nav>
+  <div class="footer__meta">
+    <% foundation_year = 2020 %>
+    © <%= if Date.utc_today.year > foundation_year, do: "#{foundation_year}-#{Date.utc_today.year}", else: foundation_year %>
+  </div>
+</footer>

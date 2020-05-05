@@ -1,0 +1,15 @@
+<div class="person__section">
+  <h3><span class="cs-fn-name"><%= gettext "About me" %></span></h3>
+  <div class="person__about cs-fn-code">
+    <p>
+      <span class="cs-var-name"><%= gettext("My name") %></span>
+      <span class="cs-assign"><%= gettext("is") %></span>
+      <span class="cs-var-val" itemprop="name"><%= l @locale, @person.props["name"] %>.</span>
+    </p>
+    <div class="cs-quote" itemprop="description">
+      """
+      <%= l(@locale, @person.props["about"]) |> as_html! |> raw %>
+      """
+    </div>
+  </div>
+</div>

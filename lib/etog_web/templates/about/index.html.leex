@@ -1,0 +1,36 @@
+<%= render SharedView, "line.html", dir: "/#{gettext "About project"}" %>
+<div class="about">
+  <h3 class="about__header"><%= gettext "About project" %></h3>
+  <p>
+    <%= gettext "I’m glad to see you on my personal blog" %>
+    <strong>"Experience to Graph"</strong>
+    <%= gettext "or short" %> - <strong>"Etog"</strong>
+    (<%= gettext "there’s a small wordplay here, as the abbreviation is like “Resume” in Russian" %>).
+    <%= gettext "Here I summarize some of my projects, completed courses or finished books, and try to share my experience and knowledge." %>
+    <br>
+    <%= gettext "This is my attempt to try new or interesting technologies on something more tangible than artificial projects." %>
+  </p>
+  <p>
+    <%= gettext "The source code is available on" %> <a href="https://github.com/HoJSim/etog" class="cs-link">github</a>.
+  </p>
+  <ul class="about__list">
+    <%= gettext "The basis of the project is:" %>
+    <li><a href="https://github.com/phoenixframework/phoenix" class="cs-link">Phoenix</a>,</li>
+    <li><a href="https://github.com/phoenixframework/phoenix_live_view" class="cs-link">Phoenix LiveView</a>,</li>
+    <li><%= gettext "Graph database" %> <a href="https://neo4j.com" class="cs-link">Node4j</a>.</li>
+  </ul>
+  <p>
+    <%= gettext "A little bit about the choice of technology:" %>
+    <ul class="about__list">
+      <li>
+        <%= gettext "I followed Phoenix and LiveView for over a year before trying it out. In my opinion, it’s a great product for a big range of internet projects, with a lot of things out of the box, small size of a bundle, with the ability to write a better maintainable project than a similar one using JS frameworks. However, if you need offline mode, this is not your choice." %>
+        <br>
+        <%= gettext "There are other disadvantages and limitations, but if you have faced with problems that your front-end project turns into something heavily maintainable in a year and the same people who created it, or a new team is calling for rewrite everything, I recommend looking in this direction.
+" %>
+      </li>
+      <li>
+        <%= gettext "The interest to the graph databases matured long ago. I can’t say that in this project I found their advantages over any others. In reality, I think it takes much more data to test them. So there are no conclusions yet. However, I have a much better idea of what it is, how to work with it, and what limitations exist." %>
+      </li>
+    </ul>
+  </p>
+</div>

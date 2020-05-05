@@ -1,0 +1,13 @@
+<div class="person__interests_travel person__section">
+  <h3><%= gettext "A Little More About My Passion For Travel" %></h3>
+  <div class="">
+    <% stat = trips_stat(@person, @nodes, @edges) %>
+    <span>
+      <%= gettext "Countries" %>: <%= stat["visited_countries"] %>,
+      <%= gettext "Cities" %>: <%= stat["visited_cities"] %>,
+      <%= gettext "Duration" %>: <%= long_humanize_duration(stat["duration"]) %>
+    </span>
+  </div>
+</div>
+<div class="person__worldmap">
+</div>

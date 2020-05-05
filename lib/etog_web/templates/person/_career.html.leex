@@ -1,0 +1,13 @@
+<h3><span class="cs-var-name"><%= gettext "Career" %></span> <span class="cs-assign">=</span> <span class="cs-bracket">[</span></h3>
+<div class="person__career cs-fn-code">
+  <%= for {j_edge, j_node, _} <- jobs(@person, @nodes, @edges) do %>
+    <div class="cs-var-val person__career-track">
+      <span itemprop="jobTitle"><%= l @locale, j_edge.props["position"] %>,</span>
+      <span itemprop="worksFor" itemscope itemtype="http://schema.org/Organization">
+        <span itemprop="name"><%= l @locale, j_node.props["title"] %></span>
+      </span>
+      (<%= job_duration(j_edge.props["from"], j_edge.props["to"]) %><%= unless j_edge.props["to"], do: "; #{gettext("current position")}" %>)
+    </div>
+  <% end %>
+</div>
+<div class="cs-bracket cs-close-bracket_h3">]</div>
