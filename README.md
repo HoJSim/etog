@@ -26,7 +26,7 @@ To start your Phoenix server:
   * Install Lefthook for git hooks:
     * `brew install Arkweid/lefthook/lefthook` [https://github.com/Arkweid/lefthook](github.com/Arkweid/lefthook)
     * `lefthook install && lefthook run pre-commit` 
-  * Load ENV variables `source .env`
+  * Load ENV variables `source config/.env`
   * Start Phoenix endpoint with `mix phx.server`
 
 To add translations:

@@ -4,7 +4,7 @@ defmodule Etog.MixProject do
   def project do
     [
       app: :etog,
-      version: "0.1.1",
+      version: "0.1.7",
       elixir: "~> 1.10",
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
@@ -36,7 +36,7 @@ defmodule Etog.MixProject do
       {:phoenix_pubsub, "~> 2.0"},
       {:phoenix_html, "~> 2.11"},
       {:phoenix_live_reload, "~> 1.2", only: :dev},
-      {:phoenix_live_view, "~> 0.12"},
+      {:phoenix_live_view, "~> 0.13"},
       {:phoenix_inline_svg, "~> 1.3"},
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
