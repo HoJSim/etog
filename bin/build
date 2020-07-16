@@ -35,6 +35,8 @@ mix local.hex --if-missing --force
 export MIX_ENV=prod
 
 # Fetch deps and compile
+mix deps.clean --all
+mix clean
 mix deps.get --only prod
 # Build assets
 npm ci --prefix assets
