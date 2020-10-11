@@ -59,7 +59,7 @@ defmodule EtogWeb.PersonLive do
         load_person(pid, user_id)
         socket
       else
-        prepare_person(load_person(pid, user_id, false), socket)
+        init_prepare_page(socket, pid, user_id)
       end
 
     {:ok, socket}
@@ -128,32 +128,49 @@ defmodule EtogWeb.PersonLive do
       pid,
       [
         %{
-          statement: "MATCH (dm:Person {key: $key}) RETURN dm",
+          statement: "MATCH (pe:Person {key: $key}) RETURN pe",
           parameters: %{key: key}
         },
         %{
-          statement:
-            "MATCH (dm)-[lin:LIVE_IN]->(city:City)-[loc_in:LOCATED_IN]->(country) RETURN lin,city,loc_in,country"
+          statement: "MATCH (pe:Person {key: $key})
+                      MATCH (pe)-[lin:LIVE_IN]->(city:City)-[loc_in:LOCATED_IN]->(country)
+                      RETURN lin,city,loc_in,country",
+          parameters: %{key: key}
         },
         %{
-          statement: "MATCH (dm)-[sat:STUDIED_AT]->(f:Faculty)-[fr:BELONGS_TO]->(u) RETURN sat,f,fr,u"
+          statement: "MATCH (pe:Person {key: $key})
+                      MATCH (pe)-[sat:STUDIED_AT]->(f:Faculty)-[fr:BELONGS_TO]->(u) RETURN sat,f,fr,u",
+          parameters: %{key: key}
         },
         %{
-          statement: "MATCH (dm)-[pin:PARTICIPATED_IN]->(e:Event)-[linked:LINKED_WITH]->(f) RETURN pin,e,linked,f"
+          statement: "MATCH (pe:Person {key: $key})
+                      MATCH (pe)-[pin:PARTICIPATED_IN]->(e:Event)-[linked:LINKED_WITH]->(f) RETURN pin,e,linked,f",
+          parameters: %{key: key}
         },
         %{
-          statement:
-            "MATCH (dm)-[wat:WORKED_AT]->(o)-[oin:LOCATED_IN]->(j_city:City)-[j_loc_in:LOCATED_IN]->(j_country) RETURN wat,o,oin,j_city,j_loc_in,j_country"
+          statement: "MATCH (pe:Person {key: $key})
+                      MATCH (pe)-[wat:WORKED_AT]->(o)-[oin:LOCATED_IN]->(j_city:City)-[j_loc_in:LOCATED_IN]->(j_country)
+                      RETURN wat,o,oin,j_city,j_loc_in,j_country",
+          parameters: %{key: key}
         },
         %{
-          statement: "MATCH (dm)-[kn:KNOW]->(s) RETURN kn,s"
+          statement: "MATCH (pe:Person {key: $key})
+                      MATCH (pe)-[kn:KNOW]->(s) RETURN kn,s",
+          parameters: %{key: key}
         },
         %{
-          statement: "MATCH (dm)-[iin:INTERESTED_IN]->(int) RETURN iin,int"
+          statement: "MATCH (pe:Person {key: $key})
+                      MATCH (pe)-[iin:INTERESTED_IN]->(int) RETURN iin,int",
+          parameters: %{key: key}
         }
       ],
       :person,
       async
     )
+  end
+
+  defp init_prepare_page(socket, pid, user_id) do
+    person = load_person(pid, user_id, false)
+    prepare_person(person, socket)
   end
 end

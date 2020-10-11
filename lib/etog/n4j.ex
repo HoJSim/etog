@@ -124,14 +124,18 @@ defmodule Etog.N4j do
   end
 
   defp eval_head(results) do
-    results
-    |> List.first()
-    |> get_in(["data"])
-    |> List.first()
-    |> get_in(["graph", "nodes"])
-    |> List.first()
-    |> get_in(["id"])
-    |> String.to_integer()
+    nodes =
+      results
+      |> List.first()
+      |> get_in(["data"])
+      |> List.first()
+      |> get_in(["graph", "nodes"])
+    if nodes do
+      nodes
+      |> List.first()
+      |> get_in(["id"])
+      |> String.to_integer()
+    end
   end
 
   defp convert(result) do

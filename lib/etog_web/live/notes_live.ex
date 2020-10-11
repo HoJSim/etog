@@ -189,11 +189,13 @@ defmodule EtogWeb.NotesLive do
       socket.assigns[:pid],
       [
         %{
-          statement: "MATCH (dm:Person {key: $key}) RETURN dm",
+          statement: "MATCH (pe:Person {key: $key}) RETURN pe",
           parameters: %{key: user_id}
         },
         %{
-          statement: "MATCH (dm)-[r:MAKE]->(n:Note) RETURN r, n #{order} #{offset}"
+          statement: "MATCH (pe:Person {key: $key})
+                      MATCH (pe)-[r:MAKE]->(n:Note) RETURN r, n #{order} #{offset}",
+          parameters: %{key: user_id}
         }
       ],
       :notes,
@@ -209,12 +211,13 @@ defmodule EtogWeb.NotesLive do
       socket.assigns[:pid],
       [
         %{
-          statement: "MATCH (dm:Person {key: $key}) RETURN dm",
+          statement: "MATCH (pe:Person {key: $key}) RETURN pe",
           parameters: %{key: user_id}
         },
         %{
-          statement: "MATCH (dm)-[r:MAKE]->(n:Note) WHERE id(n)=$note_id RETURN r, n",
-          parameters: %{note_id: note_id}
+          statement: "MATCH (pe:Person {key: $key})
+                      MATCH (pe)-[r:MAKE]->(n:Note) WHERE id(n)=$note_id RETURN r, n",
+          parameters: %{key: user_id, note_id: note_id}
         }
       ],
       :note,
