@@ -28,7 +28,7 @@ RUN apk update && \
   apk upgrade --no-cache && \
   apk add --no-cache \
   bash \
-  make gcc g++ python \
+  make gcc g++ python2 python3 \
   npm
 RUN apk add --no-cache \
   git \
