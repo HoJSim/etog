@@ -8,7 +8,7 @@ body {
   background-color: var(--base3);
   display: flex;
   flex-direction: column;
-  font-family: 'Source Code Pro', monospace;
+  font-family: 'Robot Mono', monospace;
   font-size: 18px;
 
   @media (prefers-color-scheme: dark) {

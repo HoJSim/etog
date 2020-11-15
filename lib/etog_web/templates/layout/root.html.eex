@@ -8,7 +8,7 @@
     <meta name="ie-polyfill-path" content="<%= Routes.static_path(@conn, "/js/polyfills.js") %>">
     <%= csrf_meta_tag() %>
     <title><%= @page_title || "Personal blog" %></title>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
     <script src="<%= Routes.static_path(@conn, "/js/app.js") %>" defer="defer"></script>
   </head>

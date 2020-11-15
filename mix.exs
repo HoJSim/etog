@@ -4,7 +4,7 @@ defmodule Etog.MixProject do
   def project do
     [
       app: :etog,
-      version: "0.1.8",
+      version: "0.1.9",
       elixir: "~> 1.11.0",
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
